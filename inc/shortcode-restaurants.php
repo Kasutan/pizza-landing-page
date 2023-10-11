@@ -14,33 +14,33 @@ function kasutan_corleone_restaurants($atts) {
 		array(
 			"image"=> "8",
 			'nom' =>"Peyrins",
-			'adresse' => "",
-			"ville" => "",
-			"tel" => ""
+			'adresse' => "825 route de Mours",
+			"ville" => "26380 Peyrins",
+			"tel" => "04 75 47 05 24"
 		),array(
 			"image"=> "9",
 			'nom' =>"Pizançon",
-			'adresse' => "",
-			"ville" => "",
-			"tel" => ""
+			'adresse' => "90 rue du 19 Mars 1962",
+			"ville" => "26300 Pizançon",
+			"tel" => "04 75 45 86 83"
 		),array(
 			"image"=> "10",
 			'nom' =>"Pont de l'Isère",
-			'adresse' => "",
-			"ville" => "Pont-de-l'Isère",
-			"tel" => ""
+			'adresse' => "8 avenue du 45ème Parallèle",
+			"ville" => "26600 Pont-de-l'Isère",
+			"tel" => "04 75 55 96 34"
 		),array(
 			"image"=> "11",
 			'nom' =>"Romans",
-			'adresse' => "",
-			"ville" => "Romans-sur-Isère",
-			"tel" => ""
+			'adresse' => "75 rue Parmentier", 
+			"ville" => "26100 Romans-sur-Isère",
+			"tel" => "04 75 48 75 69"
 		),array(
 			"image"=> "12",
 			'nom' =>"Valence",
-			'adresse' => "",
-			"ville" => "Valence",
-			"tel" => ""
+			'adresse' => "Plateau des Couleures, Pl. Pierre Lubat",
+			"ville" => "26000 Valence",
+			"tel" => "04 75 40 63 77"
 		)
 		];
 		
