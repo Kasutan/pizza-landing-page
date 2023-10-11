@@ -55,13 +55,14 @@ function kasutan_corleone_restaurants($atts) {
 					$tel_formate=kasutan_formate_tel($tel);
 					$ville=$resto['ville'];
 					$nom=$resto['nom'];
+					$slug=kasutan_formate_nom($nom);
 					
 					printf('<div class="image">%s</div>',wp_get_attachment_image($resto['image'], 'medium_large'));
 					printf('<h3>Corleone %s</h3>',$nom);
 
 					printf('<p class="adresse">%s <br> %s</p>',$resto['adresse'],$ville);
-					printf('<a href="tel:%s" class="tel mobile" data-ville="%s" target="_blank">Tél.&nbsp;: %s</a>',$tel_formate,$nom,$tel);
-					printf('<button class="control-tel" data-ville="%s" aria-controls="#tel-desktop-%s" aria-expanded="false">Afficher le numéro</button>',$nom,$num);
+					printf('<a href="tel:%s" class="tel mobile" data-ville="%s" target="_blank">Tél.&nbsp;: %s</a>',$tel_formate,$slug,$tel);
+					printf('<button class="control-tel" data-ville="%s" aria-controls="#tel-desktop-%s" aria-expanded="false">Afficher le numéro</button>',$slug,$num);
 					printf('<p class="tel desktop" id="tel-desktop-%s">Tél.&nbsp;: %s</p>',$num, $tel);
 					
 				echo '</li>';
@@ -77,5 +78,14 @@ function kasutan_formate_tel($tel) {
 	$tel=substr($tel,1);
 	$tel='+33'.$tel;
 	return $tel;
+}
+
+function kasutan_formate_nom($nom) {
+	$nom=remove_accents($nom);
+	$nom=str_replace(' ','-',$nom);
+	$nom=str_replace("'",'-',$nom);
+	$nom=strtolower($nom);
+	return $nom;
+	
 }
 
