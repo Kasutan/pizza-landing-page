@@ -546,12 +546,12 @@ Pied de page
   margin-bottom: 2rem;
 }
 
-.site-footer .restaurants {
+.site-footer .footer-restaurants {
   text-align: center;
   text-transform: uppercase;
 }
 
-.site-footer .restaurants .intro {
+.site-footer .footer-intro {
   font-size: 2.4rem;
 }
 

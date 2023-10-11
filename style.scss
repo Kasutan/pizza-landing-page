@@ -385,15 +385,13 @@ Pied de page
 		margin-bottom: 2rem;
 	}
 
-	.restaurants {
+	.footer-restaurants {
 		text-align: center;
 		text-transform: uppercase;
-
-		.intro {
-			font-size: 2.4rem;
-		}
 	}
-
+	.footer-intro {
+		font-size: 2.4rem;
+	}
 	@include bp(md) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
