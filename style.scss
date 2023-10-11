@@ -1,0 +1,520 @@
+/*!
+Theme Name: pizza-lp
+Theme URI: hhttps://kasutan.pro
+Author: Magalie Castaing
+Author URI: https://kasutan.pro
+Description: Octobre 2023
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: pizza
+Tags: custom-logo, custom-menu, featured-images
+
+This theme, like WordPress, is licensed under the GPL. 
+Use it to make something cool, have fun, and share what you've learned with others.
+
+kasutan is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+@import "sass/variables-et-mixins";
+@import "sass/normalize";
+@import "sass/fonts";
+
+//@import "sass/base/utilities";
+/*
+//@import "base/colors"; 
+@import "sass/base/layout";
+@import "base/boutons";
+//@import "base/elements";
+//@import "base/navigation"; 
+//@import "base/print";
+//@import "base/animations";
+//@import "lib/modaal";
+@import "templates/header";
+@import "templates/footer";
+@import "templates/loop";
+@import "templates/home";
+@import "templates/page";
+@import "templates/search";
+@import "templates/single";
+@import "templates/groupe";
+@import "components/blocs-natifs";
+@import "components/filtre";
+@import "components/pagination";
+@import "components/post-summary";*/
+
+/********************************************************
+Layout
+********************************************************/
+
+body {
+	margin: 0; //ios 12 et 13
+	overflow-x: hidden;
+}
+
+:root {
+	--margin-y-1: 3rem;
+	--margin-y-2: 6rem;
+	--padding-x: 20px;
+	--padding-x-pleine-largeur: 0;
+	--largeur-max: 1440px;
+
+
+	@include bp(lg) {
+		--padding-x: calc(50vw - 1130px/2);
+	}
+
+	@include bp(xl) {
+		--padding-x-pleine-largeur: calc(50vw - var(--largeur-max)/2);
+	}
+
+}
+
+
+
+
+body .entry-content {
+	padding: 5rem var(--padding-x) 10rem;
+}
+
+
+.alignfull,
+.bleed-container {
+	@include bleed;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.container {
+	padding: 0 var(--padding-x);
+}
+
+
+/********************************************************
+*Couleurs
+********************************************************/
+:root {
+	--blanc: #fff;
+	--rouge: #FA3737;
+	--vert: #1D9841;
+	--noir: #000;
+}
+
+
+body .entry-content {
+	background-color: var(--noir);
+	color: var(--blanc);
+}
+
+::selection {
+	background: var(--rouge);
+	color: var(--blanc);
+}
+
+
+/********************************************************
+*Typographie
+********************************************************/
+
+html {
+	font-family: 'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	/* 1rem = 10px */
+}
+
+body {
+	font-weight: 400;
+	font-size: 2rem;
+}
+
+strong,
+b {
+	font-weight: 600;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+.h2,
+.h3,
+.h4 {
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+h2,
+.h2 {
+	font-size: 4.4rem;
+	font-weight: 700;
+	margin: 0 auto 1.6rem;
+}
+
+p {
+	margin-bottom: 0.5em;
+	margin-top: 0;
+}
+
+
+mark,
+ins {
+	background: var(--fond);
+	text-decoration: none;
+}
+
+small,
+.has-small-font-size {
+	@include fs(10);
+}
+
+.has-regular-font-size {
+	@include fs(12);
+}
+
+big,
+.has-big-font-size {
+	@include fs(16);
+}
+
+.has-huge-font-size {
+	@include fs(44);
+}
+
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	@include screen-reader-text;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--fond);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	display: block;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0s !important;
+		transition-duration: 0s !important;
+	}
+}
+
+/********************************************************
+Header
+********************************************************/
+
+.site-header {
+	height: 250px;
+
+	@include bp(lg) {
+		height: 300px;
+	}
+
+	position: relative;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+
+	.header-bkg {
+		position: absolute;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		top: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.header-logo {
+		position: relative;
+		max-width: 80%;
+
+		img {
+			object-fit: contain;
+		}
+	}
+}
+
+/********************************************************
+Landing page
+********************************************************/
+.intro {
+	margin-bottom: 5rem;
+
+	.wp-block-group__inner-container {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	h2 {
+		background-color: var(--rouge);
+		color: var(--blanc);
+		display: inline-block;
+		padding: 4px 10px;
+	}
+
+	p {
+		font-weight: 700;
+	}
+	a {
+		color:var(--rouge);
+		text-decoration: underline;
+	}
+}
+
+.restaurants {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	row-gap: 5rem;
+
+	@include bp(md) {
+		grid-template-columns: repeat(2,1fr);
+		column-gap: 20px;
+	}
+
+	@include bp(lg) {
+		grid-template-columns: repeat(3,1fr);
+		column-gap: 20px;
+	}
+}
+
+.resto {
+	font-size: 2rem;
+	line-height: 1;
+	max-width: 36rem;
+	text-align: center;
+
+	.image {
+		margin-bottom: 13px;
+	}
+
+	h3 {
+		color: var(--vert);
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	.tel, .control-tel {
+		color: var(--rouge);
+		font-size: 2.4rem;
+		line-height: 3.2rem;
+
+		&.desktop {
+			display: none;
+		}
+	}
+
+	.control-tel {
+		display: none;
+	}
+
+	@include bp(md) {
+		.tel.mobile {
+			display: none;
+		}
+		.control-tel {
+			cursor:pointer;
+			display: block;
+			margin:0 auto;
+			padding:0 20px;
+			text-align: center;
+		}
+	}
+
+}
+
+
+/********************************************************
+Sections plats avec galerie
+********************************************************/
+section.plats {
+	background-color: var(--fond);
+	padding: 4rem var(--padding-x);
+
+	h2 {
+		margin-bottom: 1em;
+	}
+
+	.liste-plats {
+		gap: 1.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		@include bp(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include bp(lg) {
+			gap: 3rem;
+		}
+	}
+
+	.plat {
+		overflow: hidden;
+		position: relative;
+		padding-top: 67%;
+
+		img {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%
+		}
+	}
+}
+
+/********************************************************
+Sections salles avec acrousel
+********************************************************/
+section.salles {
+	padding: 4rem var(--padding-x);
+
+	h2 {
+		margin-bottom: 1em;
+	}
+
+	.liste-salles {
+		padding: 0 2rem;
+		position: relative;
+	}
+
+	.slide {
+		overflow: hidden;
+		position: relative;
+		padding-top: 67%;
+
+		img {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%
+		}
+	}
+
+	--taille:3rem;
+	--marge:0px;
+
+	.owl-carousel .owl-nav {
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		left: calc(-0.5 * var(--taille) - var(--marge));
+		top: calc((100% - var(--taille)) / 2);
+		width: calc(100% + var(--taille) + 2 * var(--marge));
+
+		button {
+			background-image: url('icons/angle-bas.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			color: transparent;
+			font-size: var(--taille);
+			height: var(--taille);
+			line-height: 1;
+			text-align: center;
+			transform: rotate(90deg);
+			transform-origin: center;
+			width: var(--taille);
+
+			&.owl-next {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	@media screen and (min-width:1080px) {
+		.liste-salles {
+			padding: 0;
+		}
+
+		--marge:4rem;
+	}
+
+	@include bp(xl) {
+		--marge: 5rem;
+	}
+}
+
+
+
+/********************************************************
+Pied de page
+********************************************************/
+
+.site-footer {
+	background-color: var(--blanc);
+	color: var(--noir);
+	font-size: 2rem;
+	padding: 4rem var(--padding-x);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.footer-logo {
+		margin-bottom: 2rem;
+	}
+
+	.restaurants {
+		text-align: center;
+		text-transform: uppercase;
+
+		.intro {
+			font-size: 2.4rem;
+		}
+	}
+
+	@include bp(md) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+	}
+
+	@include bp(lg) {
+		grid-template-columns: 28rem 1fr;
+	}
+}
